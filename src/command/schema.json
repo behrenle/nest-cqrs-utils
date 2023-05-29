@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "NestCqrsCommand",
+  "title": "Nest Cqrs Command Options Schema",
+  "type": "object",
+  "properties": {
+    "module": {
+      "type": "string",
+      "description": "The path to the module.",
+      "format": "path",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "enter module path"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the command.",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": "enter command name"
+    },
+    "responseDto": {
+      "type": "boolean",
+      "default": false
+    },
+    "requestBodyDto": {
+      "type": "boolean",
+      "default": false
+    },
+    "requestQueryDto": {
+      "type": "boolean",
+      "default": false
+    },
+    "requestPathDto": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["name", "module"]
+}
