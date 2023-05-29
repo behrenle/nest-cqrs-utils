@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "nest-cqrs": {
+      "description": "A blank schematic.",
+      "factory": "./nest-cqrs/index#nestCqrs"
+    }
+  }
+}
