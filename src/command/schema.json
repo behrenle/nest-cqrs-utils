@@ -8,37 +8,52 @@
       "type": "string",
       "description": "The path to the module.",
       "format": "path",
-      "$default": {
-        "$source": "argv",
-        "index": 0
-      },
       "x-prompt": "enter module path"
     },
     "name": {
       "type": "string",
       "description": "The name of the command.",
-      "$default": {
-        "$source": "argv",
-        "index": 1
-      },
       "x-prompt": "enter command name"
+    },
+    "method": {
+      "type": "string",
+      "description": "http method",
+      "x-prompt": "enter http method"
+    },
+    "url": {
+      "type": "string",
+      "description": "rest api endpoint url",
+      "x-prompt": "enter url"
     },
     "responseDto": {
       "type": "boolean",
-      "default": false
+      "description": "response body dto",
+      "x-prompt": "yes/no"
     },
     "requestBodyDto": {
       "type": "boolean",
-      "default": false
+      "description": "request body dto",
+      "x-prompt": "yes/no"
     },
     "requestQueryDto": {
       "type": "boolean",
-      "default": false
+      "description": "request query dto",
+      "x-prompt": "yes/no"
     },
-    "requestPathDto": {
+    "requestParamsDto": {
       "type": "boolean",
-      "default": false
+      "description": "request params dto",
+      "x-prompt": "yes/no"
     }
   },
-  "required": ["name", "module"]
+  "required": [
+    "name",
+    "module",
+    "method",
+    "url",
+    "responseDto",
+    "requestBodyDto",
+    "requestParamsDto",
+    "requestQueryDto"
+  ]
 }
