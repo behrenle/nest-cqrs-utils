@@ -6,10 +6,11 @@ import { <%= classify(name) %>RequestBodyDto } from './<%= name %>.request.body.
 import { <%= classify(name) %>RequestQueryDto } from './<%= name %>.request.query.dto';<% } if(requestParamsDto) { %>
 import { <%= classify(name) %>RequestParamsDto } from './<%= name %>.request.params.dto';<% } %>
 
+@Controller(<%= url ? `"${url}"` : "" %>)
 export class <%= classify(name)%>Controller {
   constructor(private commandBus: CommandBus) {}
 
-  @<%= httpMethodDecorator %>(<%= url ? `"${url}"` : "" %>)
+  @<%= httpMethodDecorator %>()
   async <%= camelize(name) %>(<% if (requestQueryDto) { %>
     @Query() query: <%= classify(name) %>RequestQueryDto,<% } if (requestParamsDto) { %>
     @Param() params: <%= classify(name) %>RequestParamsDto,<% } if (requestBodyDto) { %>
