@@ -1,6 +1,6 @@
 {
   "name": "@behrenle/nest-cqrs-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nestjs scqrs schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
