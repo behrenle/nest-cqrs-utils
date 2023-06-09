@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { <%= classify(name) %>Command } from './<%= name %>.resolver';
+import { <%= classify(name) %>Command } from './<%= name %>.command';
 import { <%= classify(name) %>ResponseDto } from './<%= name %>.response.dto';
 
 @CommandHandler(<%= classify(name)%>Command)
