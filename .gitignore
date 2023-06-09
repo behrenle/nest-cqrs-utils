@@ -19,4 +19,4 @@ yarn-error.log*
 .DS_Store
 
 !src/**/files/**/*
-!src/**/*.d.ts
+!src/**/*.schema.d.ts
