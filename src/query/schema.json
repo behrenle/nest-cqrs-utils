@@ -12,8 +12,8 @@
     },
     "name": {
       "type": "string",
-      "description": "The name of the command.",
-      "x-prompt": "Please enter the command name"
+      "description": "The name of the query.",
+      "x-prompt": "Please enter the query name"
     },
     "method": {
       "type": "string",
