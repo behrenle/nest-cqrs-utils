@@ -23,11 +23,11 @@ describe("command factory", () => {
     const files: string[] = tree!.files;
 
     const expectedFiles = [
-      "/src/bar/commands/foo-bar/foo-bar.query.ts",
-      "/src/bar/commands/foo-bar/foo-bar.handler.ts",
-      "/src/bar/commands/foo-bar/foo-bar.response.dto.ts",
-      "/src/bar/commands/foo-bar/foo-bar.request.query.dto.ts",
-      "/src/bar/commands/foo-bar/foo-bar.request.params.dto.ts",
+      "/src/bar/queries/foo-bar/foo-bar.query.ts",
+      "/src/bar/queries/foo-bar/foo-bar.handler.ts",
+      "/src/bar/queries/foo-bar/foo-bar.response.dto.ts",
+      "/src/bar/queries/foo-bar/foo-bar.request.query.dto.ts",
+      "/src/bar/queries/foo-bar/foo-bar.request.params.dto.ts",
     ];
 
     expectedFiles.forEach((expectedFilename) =>
@@ -52,14 +52,14 @@ describe("command factory", () => {
     const files: string[] = tree!.files;
 
     const expectedFiles = [
-      "/src/bar/commands/foo-bar/foo-bar.query.ts",
-      "/src/bar/commands/foo-bar/foo-bar.handler.ts",
+      "/src/bar/queries/foo-bar/foo-bar.query.ts",
+      "/src/bar/queries/foo-bar/foo-bar.handler.ts",
     ];
 
     const notExpectedFiles = [
-      "/src/bar/commands/foo-bar/foo-bar.response.dto.ts",
-      "/src/bar/commands/foo-bar/foo-bar.request.query.dto.ts",
-      "/src/bar/commands/foo-bar/foo-bar.request.params.dto.ts",
+      "/src/bar/queries/foo-bar/foo-bar.response.dto.ts",
+      "/src/bar/queries/foo-bar/foo-bar.request.query.dto.ts",
+      "/src/bar/queries/foo-bar/foo-bar.request.params.dto.ts",
     ];
 
     expectedFiles.forEach((expectedFilename) =>

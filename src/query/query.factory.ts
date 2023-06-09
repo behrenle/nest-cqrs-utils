@@ -64,6 +64,6 @@ function generateFiles(options: QueryOptions): Source {
       nestCommonImports,
       ...strings,
     }),
-    move(join(normalize(options.module), "commands", dasherize(options.name))),
+    move(join(normalize(options.module), "queries", dasherize(options.name))),
   ]);
 }
