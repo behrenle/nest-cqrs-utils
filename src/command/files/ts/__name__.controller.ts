@@ -9,11 +9,11 @@ import { <%= classify(name) %>RequestParamsDto } from './<%= name %>.request.par
 export class <%= classify(name)%>Controller {
   constructor(private commandBus: CommandBus) {}
 
-  @<%= httpMethodDecorator %>("<%= url %>")
+  @<%= httpMethodDecorator %>(<%= url ? `"${url}"` : "" %>)
   async <%= camelize(name) %>(<% if (requestQueryDto) { %>
     @Query() query: <%= classify(name) %>RequestQueryDto,<% } if (requestParamsDto) { %>
     @Param() params: <%= classify(name) %>RequestParamsDto,<% } if (requestBodyDto) { %>
-    @Body() body: <%= classify(name) %>RequestParamsDto,<% } if (requestBodyDto || requestParamsDto || requestQueryDto) {%> 
+    @Body() body: <%= classify(name) %>RequestBodyDto,<% } if (requestBodyDto || requestParamsDto || requestQueryDto) {%> 
   <%}%>): Promise<<%= responseDto ? classify(name) + "ResponseDto" : "void" %>> {
 
   }
