@@ -3,8 +3,13 @@
   "schematics": {
     "command": {
       "factory": "./command/command.factory#main",
-      "description": "Create a Nest application.",
+      "description": "create a nest cqrs command",
       "schema": "./command/schema.json"
+    },
+    "query": {
+      "factory": "./query/query.factory#main",
+      "description": "create a nest cqrs query",
+      "schema": "./query/schema.json"
     }
   }
 }
