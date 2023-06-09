@@ -16,6 +16,7 @@ import { CommandOptions } from "./command.schema";
 
 import { join, normalize, strings } from "@angular-devkit/core";
 import { dasherize } from "@angular-devkit/core/src/utils/strings";
+import { convertHttpMethodToNestDecorator } from "../utils/convert-http-method-to-nest-decorator";
 
 export function main(options: CommandOptions): Rule {
   return (tree: Tree, context: SchematicContext) => {
@@ -24,27 +25,6 @@ export function main(options: CommandOptions): Rule {
       context
     );
   };
-}
-
-function convertHttpMethodToNestDecorator(method: string): string {
-  switch (method.toLowerCase()) {
-    case "get":
-      return "Get";
-
-    case "post":
-      return "Post";
-
-    case "delete":
-      return "Delete";
-
-    case "patch":
-      return "Patch";
-
-    case "put":
-      return "Put";
-  }
-
-  throw `Unknown http method: ${method}`;
 }
 
 function generateFiles(options: CommandOptions): Source {
