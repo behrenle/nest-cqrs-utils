@@ -39,6 +39,9 @@ function convertHttpMethodToNestDecorator(method: string): string {
 
     case "patch":
       return "Patch";
+
+    case "put":
+      return "Put";
   }
 
   throw `Unknown http method: ${method}`;
