@@ -14,16 +14,25 @@ import {
 } from "@angular-devkit/schematics";
 import { CommandOptions } from "./command.schema";
 
-import { join, normalize, strings } from "@angular-devkit/core";
+import { Path, join, normalize, strings } from "@angular-devkit/core";
 import { dasherize } from "@angular-devkit/core/src/utils/strings";
 import { convertHttpMethodToNestDecorator } from "../utils/convert-http-method-to-nest-decorator";
+import { getSourceRoot } from "../utils/get-source-root";
 
 export function main(options: CommandOptions): Rule {
   return (tree: Tree, context: SchematicContext) => {
-    return branchAndMerge(chain([mergeWith(generateFiles(options))]))(
-      tree,
-      context
-    );
+    const sourceRoot = getSourceRoot(tree);
+    console.debug(sourceRoot);
+    return branchAndMerge(
+      chain([
+        mergeWith(
+          generateFiles({
+            ...options,
+            module: join(sourceRoot as Path, options.module),
+          })
+        ),
+      ])
+    )(tree, context);
   };
 }
 

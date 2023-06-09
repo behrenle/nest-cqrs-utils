@@ -24,12 +24,12 @@ describe("command factory", () => {
     const files: string[] = tree!.files;
 
     const expectedFiles = [
-      "/bar/commands/foo-bar/foo-bar.command.ts",
-      "/bar/commands/foo-bar/foo-bar.handler.ts",
-      "/bar/commands/foo-bar/foo-bar.response.dto.ts",
-      "/bar/commands/foo-bar/foo-bar.request.body.dto.ts",
-      "/bar/commands/foo-bar/foo-bar.request.query.dto.ts",
-      "/bar/commands/foo-bar/foo-bar.request.params.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.command.ts",
+      "/src/bar/commands/foo-bar/foo-bar.handler.ts",
+      "/src/bar/commands/foo-bar/foo-bar.response.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.request.body.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.request.query.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.request.params.dto.ts",
     ];
 
     console.debug(expectedFiles.map((f) => files.includes(f)));
@@ -57,15 +57,15 @@ describe("command factory", () => {
     const files: string[] = tree!.files;
 
     const expectedFiles = [
-      "/bar/commands/foo-bar/foo-bar.command.ts",
-      "/bar/commands/foo-bar/foo-bar.handler.ts",
+      "/src/bar/commands/foo-bar/foo-bar.command.ts",
+      "/src/bar/commands/foo-bar/foo-bar.handler.ts",
     ];
 
     const notExpectedFiles = [
-      "/bar/commands/foo-bar/foo-bar.response.dto.ts",
-      "/bar/commands/foo-bar/foo-bar.request.body.dto.ts",
-      "/bar/commands/foo-bar/foo-bar.request.query.dto.ts",
-      "/bar/commands/foo-bar/foo-bar.request.params.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.response.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.request.body.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.request.query.dto.ts",
+      "/src/bar/commands/foo-bar/foo-bar.request.params.dto.ts",
     ];
 
     expectedFiles.forEach((expectedFilename) =>
