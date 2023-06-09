@@ -1,7 +1,7 @@
 {
-  "name": "nest-cqrs",
-  "version": "0.0.0",
-  "description": "A blank schematics",
+  "name": "nest-cqrs-utils",
+  "version": "1.0.0",
+  "description": "nestjs scqrs schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "NODE_ENV=test jest -w 1 --verbose --no-cache --config jest.json"
