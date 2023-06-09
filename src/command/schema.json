@@ -8,42 +8,42 @@
       "type": "string",
       "description": "The path to the module.",
       "format": "path",
-      "x-prompt": "enter module path"
+      "x-prompt": "Please enter the module path"
     },
     "name": {
       "type": "string",
       "description": "The name of the command.",
-      "x-prompt": "enter command name"
+      "x-prompt": "Please enter the command name"
     },
     "method": {
       "type": "string",
       "description": "http method",
-      "x-prompt": "enter http method"
+      "x-prompt": "Please enter the http method:"
     },
     "url": {
       "type": "string",
-      "description": "rest api endpoint url",
+      "description": "Please enter the url for the REST API endpoint:",
       "x-prompt": "enter url"
     },
     "responseDto": {
       "type": "boolean",
       "description": "response body dto",
-      "x-prompt": "yes/no"
+      "x-prompt": "Would you like to have a response body dto?"
     },
     "requestBodyDto": {
       "type": "boolean",
       "description": "request body dto",
-      "x-prompt": "yes/no"
+      "x-prompt": "Would you like to have a request body dto?"
     },
     "requestQueryDto": {
       "type": "boolean",
       "description": "request query dto",
-      "x-prompt": "yes/no"
+      "x-prompt": "Would you like to have a request query dto?"
     },
     "requestParamsDto": {
       "type": "boolean",
       "description": "request params dto",
-      "x-prompt": "yes/no"
+      "x-prompt": "Would you like to have a request params dto?"
     }
   },
   "required": [
