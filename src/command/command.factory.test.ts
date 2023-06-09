@@ -41,7 +41,7 @@ describe("command factory", () => {
     );
   });
 
-  it("should generate files with dtos", async () => {
+  it("should generate files without dtos", async () => {
     const options: CommandOptions = {
       name: "FooBar",
       module: "bar",
