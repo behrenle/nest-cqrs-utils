@@ -6,7 +6,7 @@ import { <%= classify(name) %>ResponseDto } from './<%= name %>.response.dto';
 export class <%= classify(name)%>Handler implements ICommandHandler<<%= classify(name) %>Command> {
   async execute(
     command: <%= classify(name) %>Command,
-  ): Promise<<%= classify(name) %>ResponseDto> {
+  ): Promise<<%= responseDto ? classify(name) + "ResponseDto" : "void" %>> {
     
   }
 }

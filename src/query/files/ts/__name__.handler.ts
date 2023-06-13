@@ -6,7 +6,7 @@ import { <%= classify(name) %>ResponseDto } from './<%= name %>.response.dto';
 export class <%= classify(name)%>Handler implements IQueryHandler<<%= classify(name) %>Query> {
   async execute(
     query: <%= classify(name) %>Query,
-  ): Promise<<%= classify(name) %>ResponseDto> {
+  ): Promise<<%= responseDto ? classify(name) + "ResponseDto" : "void" %>> {
     
   }
 }
