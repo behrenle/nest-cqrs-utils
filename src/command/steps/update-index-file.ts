@@ -1,28 +1,13 @@
 import { Path, join } from "@angular-devkit/core";
-import { classify } from "@angular-devkit/core/src/utils/strings";
+import { classify, dasherize } from "@angular-devkit/core/src/utils/strings";
 import {
   Rule,
   SchematicContext,
   SchematicsException,
   Tree,
 } from "@angular-devkit/schematics";
-import { Node, SyntaxKind } from "typescript";
 import { findEndOfLastArrayItem } from "../../utils/find-end-of-last-array-item";
-
-// @ts-ignore
-function showTree(node: Node, indent: string = "    ") {
-  let str = indent + SyntaxKind[node.kind] + "\n";
-
-  if (node.getChildCount() === 0) {
-    str += indent + "    Text: " + node.getText() + "\n";
-  }
-
-  for (let child of node.getChildren()) {
-    str += showTree(child, indent + "    ");
-  }
-
-  return str;
-}
+import { findEndOfImportsBlock } from "../../utils/find-end-of-imports-block";
 
 function insertMultiple(
   str: string,
@@ -48,9 +33,8 @@ function insertMultiple(
 
 export function updateIndexFile(modulePath: string, name: string): Rule {
   return (tree: Tree, _context: SchematicContext) => {
-    const indexFileContent = tree.readText(
-      join(modulePath as Path, "commands/index.ts")
-    );
+    const filePath = join(modulePath as Path, "commands/index.ts");
+    const indexFileContent = tree.readText(filePath);
 
     const commandHandlerInsertionPos = findEndOfLastArrayItem(
       "commandHandlers",
@@ -66,6 +50,8 @@ export function updateIndexFile(modulePath: string, name: string): Rule {
     if (!commandControllerInsertionPos) {
       throw new SchematicsException("cannot find commandControllers array");
     }
+
+    const endOfImports = findEndOfImportsBlock(indexFileContent);
     const controllerName = classify(name) + "Controller";
     const handlerName = classify(name) + "Handler";
 
@@ -78,9 +64,19 @@ export function updateIndexFile(modulePath: string, name: string): Rule {
       {
         at: commandHandlerInsertionPos.end,
         content: handlerName,
+      },
+      {
+        at: endOfImports,
+        content: `\nimport { ${controllerName} } from './${dasherize(
+          name
+        )}/${dasherize(
+          name
+        )}.controller';\nimport { ${handlerName} } from './${dasherize(
+          name
+        )}/${dasherize(name)}.handler';${endOfImports === 0 ? "\n\n" : ""}`,
       }
     );
-    tree.overwrite(join(modulePath as Path, "commands/index.ts"), newContent);
+    tree.overwrite(filePath, newContent);
     return tree;
   };
 }

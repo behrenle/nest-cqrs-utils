@@ -23,8 +23,6 @@ describe("command factory", () => {
     const tree = await runner.runSchematic("command", options);
     const files: string[] = tree!.files;
 
-    console.debug(files);
-
     const expectedFiles = [
       "/src/bar/commands/index.ts",
       "/src/bar/commands/foo-bar/foo-bar.command.ts",
@@ -40,8 +38,6 @@ describe("command factory", () => {
         files.find((filename) => filename === expectedFilename)
       ).toBeDefined()
     );
-
-    console.debug(tree.readContent("/src/bar/commands/index.ts"));
   });
 
   it("should generate files without dtos", async () => {
@@ -60,6 +56,7 @@ describe("command factory", () => {
     const files: string[] = tree!.files;
 
     const expectedFiles = [
+      "/src/bar/commands/index.ts",
       "/src/bar/commands/foo-bar/foo-bar.command.ts",
       "/src/bar/commands/foo-bar/foo-bar.handler.ts",
     ];
