@@ -11,6 +11,7 @@ import { Path, join, normalize } from "@angular-devkit/core";
 import { getSourceRoot } from "../utils/get-source-root";
 import { generateFiles } from "./steps/generate-files";
 import { generateIndexFile } from "./steps/generate-index-file";
+import { updateIndexFile } from "./steps/update-index-file";
 
 export function main(options: CommandOptions): Rule {
   return (tree: Tree, context: SchematicContext) => {
@@ -29,6 +30,7 @@ export function main(options: CommandOptions): Rule {
           })
         ),
         mergeWith(generateIndexFile(!tree.get(indexFileLocation), modulePath)),
+        updateIndexFile(modulePath, options.name),
       ])
     )(tree, context);
   };

@@ -26,6 +26,7 @@ describe("command factory", () => {
     console.debug(files);
 
     const expectedFiles = [
+      "/src/bar/commands/index.ts",
       "/src/bar/commands/foo-bar/foo-bar.command.ts",
       "/src/bar/commands/foo-bar/foo-bar.handler.ts",
       "/src/bar/commands/foo-bar/foo-bar.response.dto.ts",
@@ -39,6 +40,8 @@ describe("command factory", () => {
         files.find((filename) => filename === expectedFilename)
       ).toBeDefined()
     );
+
+    console.debug(tree.readContent("/src/bar/commands/index.ts"));
   });
 
   it("should generate files without dtos", async () => {
